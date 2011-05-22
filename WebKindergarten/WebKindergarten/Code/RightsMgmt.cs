@@ -10,7 +10,7 @@ namespace WebKindergarten.Code
 {
     public static class RightsMgmt
     {
-        public bool CreateUser(String username, int pwdhash, String group, int dbID)
+        public static bool CreateUser(String username, int pwdhash, String group, int dbID)
         {
             string send = username + " " + pwdhash.ToString() + " " + group + " " + dbID.ToString();
             string answer = DoQuestion(send);

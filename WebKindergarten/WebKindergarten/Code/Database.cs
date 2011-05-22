@@ -16,7 +16,8 @@ namespace WebKindergarten.Code
     public class Database
     {
         //private const string DbFile = "C:\\Users\\Karotte\\Desktop\\NHIBTest\\src\\firstProgram.db";
-        private const string DbFile = "C:\\Users\\David\\Desktop\\Projects\\firstProgram.db";
+        //private const string DbFile = "C:\\Users\\David\\Desktop\\Projects\\firstProgram.db";
+        private const string DbFile = "firstProgram.db";
         private ISessionFactory sessionFactory;
 
         public Database()
@@ -66,12 +67,24 @@ namespace WebKindergarten.Code
 
         private static ISessionFactory CreateSessionFactory()
         {
-            return Fluently.Configure()
+            /*return Fluently.Configure()
                 .Database(SQLiteConfiguration.Standard
                     .UsingFile(DbFile))
                 .Mappings(m =>
                     m.FluentMappings.AddFromAssemblyOf<Database>())
                 .ExposeConfiguration(BuildSchema)
+                .BuildSessionFactory();*/
+
+            return Fluently.Configure()
+                .Database(MySQLConfiguration.Standard
+                    .ConnectionString(cs => cs
+                        .Server("192.168.1.11")
+                        .Database("testuser")
+                        .Username("testuser")
+                        .Password("test")))
+                .Mappings(m =>
+                    m.FluentMappings.AddFromAssemblyOf<Database>())
+                //.ExposeConfiguration(BuildSchema)
                 .BuildSessionFactory();
         }
 

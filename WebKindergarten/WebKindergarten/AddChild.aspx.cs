@@ -13,7 +13,7 @@ namespace WebKindergarten
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            TextBox1.Text = Session["Name"] == null ? "NULL" : Session["Name"].ToString();
+           // TextBox1.Text = Session["Name"] == null ? "NULL" : Session["Name"].ToString();
         }
 
         protected void Button1_Click(object sender, EventArgs e)

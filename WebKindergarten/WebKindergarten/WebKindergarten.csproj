@@ -36,6 +36,9 @@
       <HintPath>..\tools\Fluent\Release\FluentNHibernate.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="mysql.visualstudio">
+      <HintPath>..\tools\mySQL\mysql.visualstudio.dll</HintPath>
+    </Reference>
     <Reference Include="NHibernate">
       <HintPath>..\tools\NHibernate\NHibernate.dll</HintPath>
     </Reference>
