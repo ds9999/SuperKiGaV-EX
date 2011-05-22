@@ -15,7 +15,8 @@ namespace WebKindergarten.Code
 {
     public class Database
     {
-        private const string DbFile = "C:\\Users\\Karotte\\Desktop\\NHIBTest\\src\\firstProgram.db";
+        //private const string DbFile = "C:\\Users\\Karotte\\Desktop\\NHIBTest\\src\\firstProgram.db";
+        private const string DbFile = "C:\\Users\\David\\Desktop\\Projects\\firstProgram.db";
         private ISessionFactory sessionFactory;
 
         public Database()
