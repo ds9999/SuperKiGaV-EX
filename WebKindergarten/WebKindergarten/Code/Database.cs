@@ -10,6 +10,7 @@ using NHibernate.Cfg;
 using NHibernate.Tool.hbm2ddl;
 using System.IO;
 using WebKindergarten.Code.Entities;
+using NHibernate.Criterion;
 
 namespace WebKindergarten.Code
 {
@@ -18,12 +19,12 @@ namespace WebKindergarten.Code
         //private const string DbFile = "C:\\Users\\Karotte\\Desktop\\NHIBTest\\src\\firstProgram.db";
         //private const string DbFile = "C:\\Users\\David\\Desktop\\Projects\\firstProgram.db";
         private const string DbFile = "firstProgram.db";
-        private ISessionFactory sessionFactory;
+        private static ISessionFactory sessionFactory = null;
 
         public Database()
         {            
             // create our NHibernate session factory
-            sessionFactory = CreateSessionFactory();
+            if(sessionFactory == null) sessionFactory = CreateSessionFactory();
 
             /*using (var session = sessionFactory.OpenSession())
             {
@@ -47,6 +48,7 @@ namespace WebKindergarten.Code
                 {
                     result = session.CreateCriteria(typeof(Kind))
                         .List<Kind>();
+                    //result = session.CreateCriteria(typeof(Kind)).Add(Expression.Like("Vorname", "Alan")).List<Kind>();
                 }
             }
             return result;
